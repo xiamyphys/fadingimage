@@ -1,0 +1,16 @@
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+\ProvidesPackage{fadingimage}[2024/03/09/ v0.1a Package for adding fading full width picture at the top or bottom of a page.]
+
+\RequirePackage{tikz,xcolor}
+\usetikzlibrary{fadings}
+
+\NewDocumentCommand{\UPFadingImage}{ o m }{
+    \tikz[remember picture,overlay]{
+        \node[scope fading=south,below,inner sep=0pt,outer sep=auto] at (current page.north) {\includegraphics[width=\paperwidth,#1]{#2}};
+    }
+}
+\NewDocumentCommand{\LOWFadingImage}{ o m }{
+    \tikz[remember picture,overlay]{
+        \node[scope fading=north,above,inner sep=0pt,outer sep=auto] at (current page.south) {\includegraphics[width=\paperwidth,#1]{#2}};
+    }
+}
