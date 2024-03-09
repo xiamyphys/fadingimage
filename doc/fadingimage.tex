@@ -8,7 +8,6 @@
 \definecolor{pkgcolor}{Hsb}{103,.8,.5}
 \definecolor{moducolor}{Hsb}{290,.8,.5}
 \definecolor{cmdcolor}{Hsb}{188,.8,.5}
-\definecolor{filecolor}{Hsb}{207,.6,.7}
 \def\pkg#1{\texorpdfstring{\textcolor{pkgcolor}{\textsf{#1}}}{“#1”}}
 \def\mode#1{\texorpdfstring{\textcolor{moducolor}{\textsf{#1}}}{“#1”}}
 \def\cmd#1{\texorpdfstring{\textcolor{cmdcolor}{\textsf{#1}}}{“#1”}}
@@ -20,14 +19,15 @@
 \author{Hsia Mingyu, \href{https://www.hdu.edu.cn}{Hangzhou Dianzi University}}
 \yyyymmdddate\date{\today}
 \affil{\href{mailto:xiamyphys@gmail.com}{\ttfamily xiamyphys@gmail.com}}
-\date{\today\quad Version 0.1a\thanks{\url{https://github.com/xiamyphys/fadingimage}}}
+\date{\today\quad Version 0.1b\thanks{\url{https://github.com/xiamyphys/FadingImage}}}
 \begin{document}
 \maketitle
-\LOWFadingImage[trim={0 {.6\paperheight} 0 0},clip]{Beautiful realities}
+\UPFadingImage[trim={0 {.96\paperheight} 0 0},clip]{Beautiful realities}
+\LOWFadingImage[trim={0 0 0 {.96\paperheight}},clip]{Beautiful realities}
 
 \vspace{-6ex}
 \begin{abstract}
-This is the document for \pkg{FadingImage} package, which provides two commands for adding fading full width picture at the top or bottom of a page. And this package will be a component of my future template \pkg{LiteBook}.
+This is \textsf{\textbf{not only the document but also the demo}} for \pkg{FadingImage} package, which provides two commands for adding fading full width picture at the top or bottom of a page. And this package is a component of my template \pkg{LiteBook}.
 \end{abstract}
 
 \section{The purpose of this package}
@@ -38,17 +38,19 @@ This package requires \pkg{tikz} package to node images and \pkg{fading} library
 \section{Loading \pkg{FadingImage}}
 You can simply download latest \verb|fadingimage.sty| file from \href{https://github.com/xiamyphys/FadingImage}{GitHub} or \href{https://ctan.org/pkg/fadingimage}{CTAN} and save it under your working directory, or using terminal/cmd to implement the commands to update all the packages (and install this package) to the latest version or switch to portable version instead
 \begin{verbatim}
-    sudo tlmgr update --self --all
+  sudo tlmgr update --self --all
 \end{verbatim}
 
 \section{Commands \cmd{UPFadingImage} \& \cmd{LOWFadingImage}}
 \begin{verbatim}
-  \UPFadingImage[ ]{example-image-a}  \LOWFadingImage[ ]{example-image-a}
+  \UPFadingImage[ ]{example-image-a} \LOWFadingImage[ ]{example-image-a}
 \end{verbatim}
 
-The two commands are all have 2 variables, while the first one is optional. The second variable of the commands can assign the image that you want to insert while the first one can assign the parameters of command \cmd{includegraphics}, such as clip to the inserted image
+The two commands are all have 2 variables, while the first one is optional. The second variable of the commands can assign the image that you want to insert, and the first one can assign the parameters of command \cmd{includegraphics}, such as clip to the inserted image
 \begin{verbatim}
-  \UPFadingImage[trim={0 {.75\paperheight} 0 0},clip]{example-image-a}
+  \UPFadingImage[trim={0 {.75\paperheight} 0 0},clip]{example-image-a}[.5]
 \end{verbatim}
+
+If a star (*) is added after the commands (such as \verb|\UPFadingImage*[...]{...}|), then the image you inserted won't be faded. \textbf{\textsf{The effect of the commands is just like this document}}.
 
 \end{document}
