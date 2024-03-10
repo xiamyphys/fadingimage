@@ -18,11 +18,11 @@
 %%   available at https://github.com/xiamyphys/FadingImage                                            *
 %% ****************************************************************************************************
 \NeedsTeXFormat{LaTeX2e}[2020/10/01]
-\ProvidesPackage{fadingimage}[2024/03/09/ v0.1b Package for adding fading full width picture at the top or bottom of a page.]
+\ProvidesPackage{fadingimage}[2024/03/11/ v0.1c Package for adding fading full width picture at the top or bottom of a page.]
 
 \RequirePackage{tikz,xcolor}
 \usetikzlibrary{fadings}
-\NewDocumentCommand{\UPFadingImage}{ s o m }{
+\NewDocumentCommand{\UPFadingImage}{ s O{} m }{
     \IfBooleanTF{#1}{
         \tikz[remember picture,overlay]
             \node[below,inner sep=0pt,outer sep=auto] at (current page.north) {\includegraphics[width=\paperwidth,#2]{#3}};
@@ -31,7 +31,7 @@
             \node[scope fading=south,below,inner sep=0pt,outer sep=auto] at (current page.north) {\includegraphics[width=\paperwidth,#2]{#3}};
     }
 }
-\NewDocumentCommand{\LOWFadingImage}{ s o m }{
+\NewDocumentCommand{\LOWFadingImage}{ s O{} m }{
     \IfBooleanTF{#1}{
         \tikz[remember picture,overlay]
             \node[above,inner sep=0pt,outer sep=auto] at (current page.south) {\includegraphics[width=\paperwidth,#2]{#3}};

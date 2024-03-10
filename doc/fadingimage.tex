@@ -8,7 +8,8 @@
 \definecolor{pkgcolor}{Hsb}{103,.8,.5}
 \definecolor{moducolor}{Hsb}{290,.8,.5}
 \definecolor{cmdcolor}{Hsb}{188,.8,.5}
-\def\pkg#1{\texorpdfstring{\textcolor{pkgcolor}{\textsf{#1}}}{“#1”}}
+\def\pkg#1{\texorpdfstring{\textcolor{pkgcolor}{
+    \href{https://ctan.org/pkg/#1}{\textsf{#1}}}}{“#1”}}
 \def\mode#1{\texorpdfstring{\textcolor{moducolor}{\textsf{#1}}}{“#1”}}
 \def\cmd#1{\texorpdfstring{\textcolor{cmdcolor}{\textsf{#1}}}{“#1”}}
 \def\datechange#1#2{%
@@ -19,7 +20,7 @@
 \author{Hsia Mingyu, \href{https://www.hdu.edu.cn}{Hangzhou Dianzi University}}
 \yyyymmdddate\date{\today}
 \affil{\href{mailto:xiamyphys@gmail.com}{\ttfamily xiamyphys@gmail.com}}
-\date{\today\quad Version 0.1b\thanks{\url{https://github.com/xiamyphys/FadingImage}}}
+\date{\today\quad Version 0.1c\thanks{\url{https://github.com/xiamyphys/FadingImage}}}
 \begin{document}
 \maketitle
 \UPFadingImage[trim={0 {.96\paperheight} 0 0},clip]{Beautiful-realities}
