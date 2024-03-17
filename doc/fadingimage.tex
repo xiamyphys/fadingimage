@@ -20,15 +20,16 @@
 \author{Hsia Mingyu, \href{https://www.hdu.edu.cn}{Hangzhou Dianzi University}}
 \yyyymmdddate\date{\today}
 \affil{\href{mailto:xiamyphys@gmail.com}{\ttfamily xiamyphys@gmail.com}}
-\date{\today\quad Version 0.1c\thanks{\url{https://github.com/xiamyphys/FadingImage}}}
+\date{\today\quad Version 0.1d\thanks{\url{https://github.com/xiamyphys/FadingImage}}}
 \begin{document}
+
 \maketitle
 \UPFadingImage[trim={0 {.96\paperheight} 0 0},clip]{Beautiful-realities}
 \LOWFadingImage[trim={0 0 0 {.96\paperheight}},clip]{Beautiful-realities}
 
 \vspace{-6ex}
 \begin{abstract}
-This is \textsf{\textbf{not only the document but also the demo}} for \pkg{FadingImage} package, which provides two commands for adding fading full width picture at the top or bottom of a page. And this package is a component of my template \pkg{LiteBook}.
+This is \textsf{\textbf{not only the document but also the demo}} for the \pkg{FadingImage} package, which provides three commands for adding fading full width picture at the top, bottom or both of them on a page. And this package is used for my template \pkg{LiteBook} and \pkg{LiteSolution}.
 \end{abstract}
 
 \section{The purpose of this package}
@@ -37,21 +38,23 @@ This package provides two commands for adding fading full width picture at the t
 This package requires \pkg{tikz} package to node images and \pkg{fading} library to support fading image.
 
 \section{Loading \pkg{FadingImage}}
-You can simply download latest \verb|fadingimage.sty| file from \href{https://github.com/xiamyphys/FadingImage}{GitHub} or \href{https://ctan.org/pkg/fadingimage}{CTAN} and save it under your working directory, or using terminal/cmd to implement the commands to update all the packages (and install this package) to the latest version or switch to portable version instead
+I strongly advise you to use terminal/cmd to implement the commands to update all the packages (and install this package) to the latest version or switch to portable version instead
 \begin{verbatim}
   sudo tlmgr update --self --all
 \end{verbatim}
 
-\section{Commands \cmd{UPFadingImage} \& \cmd{LOWFadingImage}}
+\section{Commands \cmd{UPFadingImage}, \cmd{LOWFadingImage} and \cmd{UPLOWFadingImage}}
+\begin{small}
 \begin{verbatim}
-  \UPFadingImage[ ]{example-image-a} \LOWFadingImage[ ]{example-image-a}
+  \UPFadingImage [<keyval list>]{<file>} \LOWFadingImage[<keyval list>]{<file>}
+  \UPFadingImage [<keyval list>]{<file>} [<keyval list>]{<file>}
 \end{verbatim}
+\end{small}
 
-The two commands are all have 2 variables, while the first one is optional. The second variable of the commands can assign the image that you want to insert, and the first one can assign the parameters of command \cmd{includegraphics}, such as clip to the inserted image
-\begin{verbatim}
-  \UPFadingImage[trim={0 {.75\paperheight} 0 0},clip]{example-image-a}[.5]
-\end{verbatim}
+The first two commands all have 2 variables and the first one is optional. The second variable of the commands can assign the image that you want to insert, and the first one can assign the parameters of command \cmd{includegraphics}, such as clip to the inserted image.
 
-If a star (*) is added after the commands (such as \verb|\UPFadingImage*[...]{...}|), then the image you inserted won't be faded. \textbf{\textsf{The effect of the commands is just like this document}}.
+The third command is a combination of the first two commands and it will call the \cmd{tikz} environment for only once time to reduce compile time.
+
+If a star (*) is added after the commands (such as \verb|\UPFadingImage*[...]{...}|), then the image you inserted won't be faded.
 
 \end{document}
