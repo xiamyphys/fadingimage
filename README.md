@@ -1,9 +1,9 @@
-# The `FadingImage` package
+# The `fadingimage` package
 
 This package provides three commands for adding fading full width picture at the top or bottom of a page.
 
 **Welcome to pull requests
-[here](https://github.com/xiamyphys/FadingImage).**
+[here](https://github.com/xiamyphys/fadingimage).**
 
 ## License
 
