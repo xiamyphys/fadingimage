@@ -1,5 +1,5 @@
 \documentclass[11pt,svgnames]{article}
-\usepackage{geometry,titlesec,authblk,hyperref,hologo}
+\usepackage{geometry,indentfirst,titlesec,authblk,hyperref,hologo}
 \titleformat*{\section}{\bfseries\large}
 \hologoFontSetup{general=\sffamily}
 \usepackage{datetime}\yyyymmdddate
@@ -11,19 +11,19 @@
 \def\cmd#1{\textcolor{MidnightBlue}{\texttt{\string#1}}}
 
 \title{\bfseries The \pkg{fadingimage} Package}
-\author{Mingyu Hsia, \href{mailto:xiamyphys@gmail.com}{\ttfamily xiamyphys@gmail.com}}
+\author{Mingyu Hsia, \href{mailto:xiamyphys@hdu.edu.cn}{\ttfamily xiamyphys@hdu.edu.cn}}
 \affil{Hangzhou Dianzi University}
-\date{\today\quad Version 0.2a\thanks{\url{https://github.com/xiamyphys/fadingimage}}}
+\date{\today\quad Version 0.3a\thanks{\url{https://github.com/xiamyphys/fadingimage}}}
 
 \begin{document}
 \maketitle
-\UPFadingImage[trim={0 {.96\paperheight} 0 0},clip]{Beautiful-realities}
-\LOWFadingImage[trim={0 0 0 {.96\paperheight}},clip]{Beautiful-realities}
+\UPFadingImage*[trim={0 {.96\paperheight} 0 0},clip]{Beautiful-realities}
+\LOWFadingImage*[trim={0 0 0 {.96\paperheight}},clip]{Beautiful-realities}
 
 \vspace{-6ex}
 \begin{abstract}
 
-This is \textsf{\textbf{not only the document but also the demo}} for the \pkg{fadingimage} package, which provides three commands for adding fading full width picture at the top, bottom or both of them on a page. This package is contained in the \pkg{LiteBook} and \pkg{LiteSolution} class.
+This is \textsf{\textbf{not only the document but also the demo}} for the \pkg{fadingimage} package, which provides macros for inputting full width picture at the edges of pages quickly. This package is contained in the \pkg{LiteBook} and \pkg{LiteSolution} class.
 
 Welcome to feedback bugs or ideas via email \href{mailto:xiamyphys@gmail.com}{\ttfamily xiamyphys@gmail.com} or \href{https://github.com/xiamyphys/fadingimage}{GitHub}.
 
@@ -41,15 +41,18 @@ Simply download \verb|fadingimage.cls| file from \href{https://github.com/xiamyp
 
 To learn more, please refer to \href{https://tex.stackexchange.com/questions/55437/how-do-i-update-my-tex-distribution}{How do I update my \hologo{TeX} distribution?}
 
-\section{Commands \cmd{UPFadingImage}, \cmd{LOWFadingImage} and \cmd{UPLOWFadingImage}}
+\section{Macros in this package}
 
-\begin{small}\begin{verbatim}
-  \UPFadingImage [<keyval list>]{<file>}  \LOWFadingImage[<keyval list>]{<file>}
-  \UPLOWFadingImage[<keyval list>]{<file>}[<keyval list>]{<file>}
-\end{verbatim}\end{small}
+\begin{verbatim}
+    \UPFadingImage  <*> [<keyval list>] {<file>} <!> % fading from top
+    \LOWFadingImage <*> [<keyval list>] {<file>} <!> % fading from bottom
+    \LTFadingImage  <*> [<keyval list>] {<file>} <!> % fading from left
+    \RITFadingImage <*> [<keyval list>] {<file>} <!> % fading from right
+\end{verbatim}
 
-The first two commands all have 2 variables and the first one is optional. The second variable of the commands can assign the image that you want to insert, and the first one can assign the parameters of command \cmd{includegraphics}, such as clip to the inserted image.
+The four commands all have 2 variables and the first one is optional. The second variable can assign the image that you want to insert and the first one can assign the parameters of command \cmd{includegraphics}, such as clip to the inserted image.
 
-The third command is just a combination of the first two commands. If a star (*) is added after the commands above, the image you inserted won't be faded.
+If an exclamation \verb|<!>| is added at the end of the commands, the image inserted won't be faded. If a star \verb|<*>| is added after the commands it will automatically exit vertical mode \verb|\leavevmode| after inserting the image.
+
 
 \end{document}
